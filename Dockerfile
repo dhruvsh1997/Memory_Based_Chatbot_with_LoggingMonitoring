@@ -4,7 +4,7 @@ FROM python:3.11-slim
 # Set working directory inside the container
 WORKDIR /app
 
-# Set environment variables
+# Set environment variables.
 # Prevent Python from writing .pyc files and buffer output
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
