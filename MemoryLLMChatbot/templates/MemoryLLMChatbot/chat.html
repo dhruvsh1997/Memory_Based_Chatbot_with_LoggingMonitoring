@@ -1,0 +1,59 @@
+{% extends 'MemoryLLMChatbot/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="chat-container">
+    <div id="chat-messages">
+        {% for message in messages %}
+            <div class="message {{ message.role }}">
+                <p>{{ message.content }}</p>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="chat-form-container">
+        <input type="text" id="chat-input" placeholder="Type your message..." class="form-control">
+        <button id="send-button" class="btn btn-primary">Send</button>
+    </div>
+</div>
+<script>
+    // Check if jQuery is loaded
+    if (typeof jQuery === 'undefined') {
+        console.error('jQuery is not loaded!');
+    } else {
+        console.log('jQuery is loaded successfully.');
+        $(document).ready(function() {
+            $('#send-button').click(function() {
+                var message = $('#chat-input').val();
+                if (message.trim() !== '') {
+                    // Append user's message to chat
+                    $('#chat-messages').append('<div class="message user"><p>' + message + '</p></div>');
+                    $.ajax({
+                        url: '{% url 'send_message' %}',
+                        type: 'POST',
+                        contentType: 'application/json',
+                        data: JSON.stringify({message: message}),
+                        headers: {
+                            'X-CSRFToken': '{{ csrf_token }}'
+                        },
+                        success: function(data) {
+                            $('#chat-messages').append('<div class="message assistant"><p>' + data.message + '</p></div>');
+                            $('#chat-input').val('');
+                            $('#chat-messages').scrollTop($('#chat-messages')[0].scrollHeight);
+                        },
+                        error: function(xhr) {
+                            alert('Error: ' + xhr.responseJSON.error);
+                        }
+                    });
+                }
+            });
+
+            $('#chat-input').keypress(function(e) {
+                if (e.which == 13) { // Enter key
+                    $('#send-button').click();
+                    return false;
+                }
+            });
+        });
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,17 @@
+# This is a gitignore file for the MemoryLLMChatLog project
+MemoryLLMChatLog.log
+
+# Ignore compiled Python folders
+MemoryLLMChatbot/__pycache__/
+MemoryLLMChatLog/__pycache__/
+*.pyc
+
+# Ignore migration folders
+MemoryLLMChatbot/migrations/
+staticfiles/
+
+# Ignore IDE settings
+.vscode/
+.idea/
+
+.env
