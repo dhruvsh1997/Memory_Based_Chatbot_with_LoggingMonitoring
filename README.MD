@@ -1,6 +1,6 @@
 # MemoryLLMChatLog: Anime-Inspired AI Chatbot with Memory 🌸✨
 
-Welcome to **MemoryLLMChatLog**, a Django-powered chatbot that brings the magic of anime to your conversations! Powered by the **Groq API**, this project features a delightful, cartoonish UI, user session management, and conversation memory to keep your chats seamless and fun. With robust logging and monitoring, it’s perfect for developers looking to explore AI chatbot development with a touch of kawaii charm! 😺
+Welcome to **MemoryLLMChatLog**, a Django-powered chatbot that bring the magic of anime to your conversations! Powered by the **Groq API**, this project features a delightful, cartoonish UI, user session management, and conversation memory to keep your chats seamless and fun. With robust logging and monitoring, it’s perfect for developers looking to explore AI chatbot development with a touch of kawaii charm! 😺
 
 ![Anime Chatbot Banner](https://via.placeholder.com/800x200.png?text=Anime+MemoryLLMChatbot) <!-- Replace with actual banner -->
 
